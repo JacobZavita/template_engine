@@ -9,3 +9,4 @@ console.log(employee1.getName())
 console.log(employee1.getId())
 console.log(employee1.getEmail())
 console.log(employee1.getRole())
+
