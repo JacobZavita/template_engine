@@ -154,7 +154,7 @@ const createIntern = () => {
 
 const createManager = () => {
   promptManager().then(function (response) {
-    const manager = new Manager(response.name, response.id, response.email.response.officeNumber)
+    const manager = new Manager(response.name, response.id, response.email, response.officeNumber)
     if (response.another == 'Engineer') {
       employees.push(manager)
       createEngineer()
