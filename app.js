@@ -112,14 +112,14 @@ function promptIntern() {
 
 const createEngineer = () => {
   promptEngineer().then(function(response){
-    const engineer = new Engineer(response.name, response.id, response.email. response.github)
-    if (response.another == 'Engineer'){
+    const engineer = new Engineer(response.name, response.id, response.email, response.github)
+    if (response.nextEntry == 'Engineer'){
       employees.push(engineer)
       createEngineer()
-    } else if (response.another == 'Intern'){
+    } else if (response.nextEntry == 'Intern'){
       employees.push(engineer)
       createIntern()
-    } else if (response.another == 'No thanks, all done'){
+    } else if (response.nextEntry == 'No thanks, all done'){
       employees.push(engineer)
 
       fs.writeFile(join(__dirname, 'output', 'index.html'), render(employees), err => {
@@ -133,14 +133,14 @@ const createEngineer = () => {
 
 const createIntern = () => {
   promptIntern().then(function (response) {
-    const intern = new Intern(response.name, response.id, response.email.response.school)
-    if (response.another == 'Engineer') {
+    const intern = new Intern(response.name, response.id, response.email, response.school)
+    if (response.nextEntry == 'Engineer') {
       employees.push(intern)
       createEngineer()
-    } else if (response.another == 'Intern') {
+    } else if (response.nextEntry == 'Intern') {
       employees.push(intern)
       createIntern()
-    } else if (response.another == 'No thanks, all done') {
+    } else if (response.nextEntry == 'No thanks, all done') {
       employees.push(intern)
 
       fs.writeFile(join(__dirname, 'output', 'index.html'), render(employees), err => {
@@ -155,13 +155,13 @@ const createIntern = () => {
 const createManager = () => {
   promptManager().then(function (response) {
     const manager = new Manager(response.name, response.id, response.email, response.officeNumber)
-    if (response.another == 'Engineer') {
+    if (response.nextEntry == 'Engineer') {
       employees.push(manager)
       createEngineer()
-    } else if (response.another == 'Intern') {
+    } else if (response.nextEntry == 'Intern') {
       employees.push(manager)
       createIntern()
-    } else if (response.another == 'No thanks, all done') {
+    } else if (response.nextEntry == 'No thanks, all done') {
       employees.push(manager)
 
       fs.writeFile(join(__dirname, 'output', 'index.html'), render(employees), err => {
